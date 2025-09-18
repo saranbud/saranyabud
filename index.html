@@ -41,23 +41,16 @@
             width: 150px;
             height: 150px;
             border-radius: 50%;
-            background: linear-gradient(45deg, #ff9a9e, #fad0c4);
             margin: 0 auto 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 48px;
-            color: white;
-            font-weight: bold;
+            object-fit: cover; /* This makes the image fill the circle without stretching */
+            border: 3px solid white; /* Optional: Adds a nice white border */
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Optional: Adds some depth */
         }
 
         .header h1 {
             font-size: 2.5rem;
             margin-bottom: 10px;
-            background: linear-gradient(45deg, #ff9a9e, #f093fb);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: #e91e63; /* This is a hot pink color */
         }
 
         .header .subtitle {
@@ -286,7 +279,7 @@
 <body>
     <div class="container">
         <header class="header">
-            <div class="profile-image">SS</div>
+            <img src="profile.jpg" alt="Saranya Srija Buddhavarapu" class="profile-image">
             <h1>Saranya Srija Buddhavarapu</h1>
             <p class="subtitle">Aspiring Business Analyst | Supply Chain Analytics Specialist</p>
             <p class="education">MS in Business Analytics - Supply Chain Analytics | Arizona State University</p>
