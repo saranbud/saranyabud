@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saranya Srija Buddhavarapu - Business Analyst</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #fecfef 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header */
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            margin-bottom: 30px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .profile-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #ff9a9e, #fad0c4);
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            color: white;
+            font-weight: bold;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            background: linear-gradient(45deg, #ff9a9e, #f093fb);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .header .subtitle {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .header .education {
+            font-size: 1rem;
+            color: #888;
+            font-style: italic;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .nav-btn {
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            padding: 15px 30px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #e91e63;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-btn:hover, .nav-btn.active {
+            background: #e91e63;
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(233, 30, 99, 0.3);
+        }
+
+        /* Content Sections */
+        .content-section {
+            display: none;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        .content-section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            text-align: center;
+            background: linear-gradient(45deg, #ff9a9e, #f093fb);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Resume Section */
+        .resume-section {
+            margin-bottom: 30px;
+        }
+
+        .resume-section h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+            border-left: 4px solid #667eea;
+            padding-left: 15px;
+        }
+
+        .resume-item {
+            margin-bottom: 20px;
+            padding: 20px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+        }
+
+        .resume-item h4 {
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .resume-item .company {
+            color: #667eea;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .resume-item .duration {
+            color: #888;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .skill-category {
+            background: linear-gradient(135deg, #ff9a9e 0%, #f093fb 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+
+        .project-card {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            border-radius: 15px;
+            padding: 25px;
+            border-left: 5px solid #667eea;
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .project-card h4 {
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 15px;
+        }
+
+        .tech-tag {
+            background: #667eea;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+        }
+
+        /* Contact Section */
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .contact-item {
+            background: linear-gradient(135deg, #ff9a9e 0%, #f093fb 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(233, 30, 99, 0.3);
+        }
+
+        .contact-item h4 {
+            margin-bottom: 10px;
+            color: white;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+            
+            .header {
+                padding: 30px 20px;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            nav {
+                gap: 10px;
+            }
+            
+            .nav-btn {
+                padding: 12px 20px;
+                font-size: 0.9rem;
+            }
+            
+            .content-section {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="profile-image">SS</div>
+            <h1>Saranya Srija Buddhavarapu</h1>
+            <p class="subtitle">Aspiring Business Analyst | Supply Chain Analytics Specialist</p>
+            <p class="education">MS in Business Analytics - Supply Chain Analytics | Arizona State University</p>
+        </header>
+
+        <nav>
+            <button class="nav-btn active" data-section="about">About</button>
+            <button class="nav-btn" data-section="resume">Resume</button>
+            <button class="nav-btn" data-section="projects">Projects</button>
+            <button class="nav-btn" data-section="extracurricular">Extracurricular</button>
+            <button class="nav-btn" data-section="contact">Contact</button>
+        </nav>
+
+        <main>
+            <section id="about" class="content-section active">
+                <h2 class="section-title">About Me</h2>
+                <p style="font-size: 1.1rem; line-height: 1.8; text-align: center; max-width: 800px; margin: 0 auto;">
+                    Welcome to my portfolio! I'm a dedicated graduate student pursuing my Master's in Business Analytics with a specialization in Supply Chain Analytics at Arizona State University. I'm passionate about leveraging data-driven insights to solve complex business problems and optimize operational efficiency.
+                </p>
+                <p style="font-size: 1.1rem; line-height: 1.8; text-align: center; max-width: 800px; margin: 20px auto 0;">
+                    My goal is to become a skilled Business Analyst who can bridge the gap between technical analytics and strategic business decisions, particularly in supply chain optimization and operational excellence.
+                </p>
+            </section>
+
+            <section id="resume" class="content-section">
+                <h2 class="section-title">Resume</h2>
+                
+                <div class="resume-section">
+                    <h3>Education</h3>
+                    <div class="resume-item">
+                        <h4>Master of Science in Business Analytics</h4>
+                        <div class="company">Arizona State University</div>
+                        <div class="duration">Expected Graduation: [Your Expected Date]</div>
+                        <p>Specialization: Supply Chain Analytics</p>
+                    </div>
+                </div>
+
+                <div class="resume-section">
+                    <h3>Core Skills</h3>
+                    <div class="skills-grid">
+                        <div class="skill-category">
+                            <h4>Analytics Tools</h4>
+                            <p>Python, R, SQL, Excel, Tableau</p>
+                        </div>
+                        <div class="skill-category">
+                            <h4>Business Analysis</h4>
+                            <p>Process Optimization, Requirements Analysis, KPI Development</p>
+                        </div>
+                        <div class="skill-category">
+                            <h4>Supply Chain</h4>
+                            <p>Logistics, Inventory Management, Demand Forecasting</p>
+                        </div>
+                        <div class="skill-category">
+                            <h4>Data Science</h4>
+                            <p>Machine Learning, Statistical Analysis, Data Visualization</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="resume-section">
+                    <h3>Experience</h3>
+                    <div class="resume-item">
+                        <h4>[Your Role Title]</h4>
+                        <div class="company">[Company Name]</div>
+                        <div class="duration">[Duration]</div>
+                        <p>Add your relevant work experience, internships, or academic projects here. Focus on quantifiable achievements and business impact.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="projects" class="content-section">
+                <h2 class="section-title">Projects</h2>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <h4>Supply Chain Optimization Analysis</h4>
+                        <p>Developed a comprehensive analysis of supply chain bottlenecks using statistical modeling and machine learning techniques to improve operational efficiency.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Pandas</span>
+                            <span class="tech-tag">Scikit-learn</span>
+                            <span class="tech-tag">Tableau</span>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card">
+                        <h4>Business Intelligence Dashboard</h4>
+                        <p>Created an interactive dashboard for tracking key business metrics and KPIs, enabling data-driven decision making for stakeholders.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Tableau</span>
+                            <span class="tech-tag">SQL</span>
+                            <span class="tech-tag">Excel</span>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card">
+                        <h4>Demand Forecasting Model</h4>
+                        <p>Built predictive models to forecast product demand using time series analysis and machine learning algorithms, improving inventory management.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">R</span>
+                            <span class="tech-tag">Time Series</span>
+                            <span class="tech-tag">Forecasting</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="extracurricular" class="content-section">
+                <h2 class="section-title">Extracurricular Activities</h2>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <h4>Business Analytics Society</h4>
+                        <p>Active member participating in workshops, networking events, and case study competitions to enhance analytical skills and industry knowledge.</p>
+                    </div>
+                    
+                    <div class="project-card">
+                        <h4>Supply Chain Club</h4>
+                        <p>Engaged in supply chain optimization challenges and industry guest lectures to stay current with trends and best practices.</p>
+                    </div>
+                    
+                    <div class="project-card">
+                        <h4>Data Science Hackathons</h4>
+                        <p>Regular participant in data science competitions and hackathons, collaborating on real-world business problems and analytical challenges.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="contact" class="content-section">
+                <h2 class="section-title">Get In Touch</h2>
+                <div class="contact-info">
+                    <a href="mailto:your.email@asu.edu" class="contact-item">
+                        <h4>📧 Email</h4>
+                        <p>your.email@asu.edu</p>
+                    </a>
+                    
+                    <a href="https://linkedin.com/in/your-profile" class="contact-item" target="_blank">
+                        <h4>💼 LinkedIn</h4>
+                        <p>Connect with me professionally</p>
+                    </a>
+                    
+                    <a href="https://github.com/your-username" class="contact-item" target="_blank">
+                        <h4>💻 GitHub</h4>
+                        <p>View my code repositories</p>
+                    </a>
+                    
+                    <div class="contact-item">
+                        <h4>📍 Location</h4>
+                        <p>Phoenix, Arizona</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const navButtons = document.querySelectorAll('.nav-btn');
+            const contentSections = document.querySelectorAll('.content-section');
+
+            navButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const sectionId = button.getAttribute('data-section');
+                    
+                    // Hide all content sections
+                    contentSections.forEach(section => {
+                        section.classList.remove('active');
+                    });
+
+                    // Remove 'active' class from all nav buttons
+                    navButtons.forEach(btn => {
+                        btn.classList.remove('active');
+                    });
+                    
+                    // Show the target section
+                    document.getElementById(sectionId).classList.add('active');
+                    
+                    // Add 'active' class to the clicked button
+                    button.classList.add('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
