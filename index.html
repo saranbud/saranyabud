@@ -37,14 +37,24 @@
             border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
-      .profile-image {
+        .profile-image-container {
             width: 150px;
             height: 150px;
-            border-radius: 50%;
+            border-radius: 50%; /* Makes the container perfectly round */
             margin: 0 auto 20px;
-            object-fit: cover; /* This makes the image fill the circle without stretching */
-            border: 3px solid white; /* Optional: Adds a nice white border */
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Optional: Adds some depth */
+            overflow: hidden; /* Crucial: Hides any part of the image that goes outside the circle */
+            border: 3px solid white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            display: flex; /* Ensures image is centered */
+            justify-content: center; /* Ensures image is centered */
+            align-items: center; /* Ensures image is centered */
+        }
+
+        .profile-image-container img {
+            width: 100%; /* Make the image fill its container */
+            height: 100%; /* Make the image fill its container */
+            object-fit: cover; /* Ensures the image covers the area without distortion */
+            border-radius: 50%; /* Apply border-radius to the image itself for consistency */
         }
 
         .header h1 {
@@ -279,7 +289,9 @@
 <body>
     <div class="container">
         <header class="header">
-            <img src="profile.jpg" alt="Saranya Srija Buddhavarapu" class="profile-image">
+            <div class="profile-image-container">
+                <img src="profile.jpg" alt="Saranya Srija Buddhavarapu">
+            </div>
             <h1>Saranya Srija Buddhavarapu</h1>
             <p class="subtitle">Aspiring Business Analyst | Supply Chain Analytics Specialist</p>
             <p class="education">MS in Business Analytics - Supply Chain Analytics | Arizona State University</p>
@@ -463,4 +475,5 @@
     </script>
 </body>
 </html>
+
 
